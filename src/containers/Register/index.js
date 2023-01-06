@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
 import RegisterImg from '../../assets/registerimage.svg'
@@ -88,7 +89,7 @@ function Register() {
           <Button type="submit" style={{ marginTop: "25px", marginBottom: "25px" }}>Cadastrar</Button>
         </form>
         <SignInLink>
-          Já possui conta? <a>Faça o login aqui!</a>
+          Já possui conta? <Link to="/login" style={{ color: 'white' }}>Faça o login aqui!</Link>
         </SignInLink>
       </ContainerItems>
     </Container >

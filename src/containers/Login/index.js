@@ -3,11 +3,12 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 
 import api from '../../services/api'
 import LoginImg from '../../assets/loginimage.svg'
 import Logo from '../../assets/logo.svg'
-
+import { useUser } from '../../hooks/UserContext'
 import Button from '../../components'
 import {
   Container,
@@ -20,6 +21,10 @@ import {
 } from './styles'
 
 function Login() {
+  const { putUserData, userData } = useUser()
+
+  console.log(userData)
+
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
     password: Yup.string().required('A senha é obrigatória').min(6, 'A senha deve ter pelo menos 6 dígitos')
@@ -34,7 +39,7 @@ function Login() {
   })
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
+    const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
         password: clientData.password
@@ -46,7 +51,7 @@ function Login() {
       }
     )
 
-    console.log(response)
+    putUserData(data)
   }
 
   return (
@@ -69,7 +74,7 @@ function Login() {
           <Button type="submit" style={{ marginTop: "75px", marginBottom: "25px" }}>Entrar</Button>
         </form>
         <SignInLink>
-          Não possui conta? <a>Crie a sua aqui!</a>
+          Não possui conta? <Link to="/cadastro" style={{ color: 'white' }}>Crie a sua aqui!</Link>
         </SignInLink>
       </ContainerItems>
     </Container>
