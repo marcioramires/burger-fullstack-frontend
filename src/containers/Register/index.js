@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
+import { toast } from 'react-toastify'
 
 import api from '../../services/api'
 import RegisterImg from '../../assets/registerimage.svg'
@@ -35,14 +36,28 @@ function Register() {
   })
 
   const onSubmit = async clientData => {
-    const response = await api.post('/users', {
-      name: clientData.name,
-      email: clientData.email,
-      password: clientData.password
-    })
+    try {
+      const { status } = await api.post(
+        'users',
+        {
+          name: clientData.name,
+          email: clientData.email,
+          password: clientData.password
+        },
+        { validateStatus: () => true }
+      )
 
-    console.log(response)
+      if (status === 201 || status === 200) {
+        toast.success('Cadastro criado com sucesso')
+      } else if (status === 409) {
+        toast.error('E-mail já cadastrado! Faça login para continuar')
+      } else {
+        throw new Error()
+      }
 
+    } catch (err) {
+      toast.error('Fala no sistema! Tente novamente')
+    }
   }
 
   return (
@@ -80,4 +95,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Register
