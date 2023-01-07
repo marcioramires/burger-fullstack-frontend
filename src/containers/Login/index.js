@@ -9,7 +9,7 @@ import api from '../../services/api'
 import LoginImg from '../../assets/loginimage.svg'
 import Logo from '../../assets/logo.svg'
 import { useUser } from '../../hooks/UserContext'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import {
   Container,
   LoginImage,
@@ -20,7 +20,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function Login() {
+export function Login() {
   const history = useHistory()
 
   const { putUserData } = useUser()
@@ -84,5 +84,3 @@ function Login() {
     </Container>
   );
 }
-
-export default Login;
