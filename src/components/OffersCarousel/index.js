@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 
 import Offers from '../../assets/offers.png'
-import { Container, CategoryImg, ContainerItems, Image, Button } from './styles'
+import { Container, OfferImg, ContainerItems, Image, Button } from './styles'
 import api from '../../services/api'
 import formatCurrency from "../../utils/formatCurrency";
 
@@ -34,7 +34,7 @@ function OffersCarousel() {
 
     return (
         <Container>
-            <CategoryImg src={Offers} alt="logo-da-oferta" />
+            <OfferImg src={Offers} alt="logo-da-oferta" />
             <Carousel
                 itemsToShow={5}
                 style={{ width: '90%' }}

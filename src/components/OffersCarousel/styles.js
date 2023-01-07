@@ -29,7 +29,7 @@ export const Container = styled.div`
 
 `
 
-export const CategoryImg = styled.img`
+export const OfferImg = styled.img`
 `
 
 export const ContainerItems = styled.div`
@@ -46,7 +46,8 @@ export const ContainerItems = styled.div`
 `
 
 export const Image = styled.img`
-    width: 200px;
+    width: 185px;
+    height: 185px;
     border-radius: 10px;
     margin-bottom: 16px;
 `
