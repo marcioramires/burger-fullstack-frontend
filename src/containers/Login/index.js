@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import api from '../../services/api'
 import LoginImg from '../../assets/loginimage.svg'
 import Logo from '../../assets/logo.svg'
 import { useUser } from '../../hooks/UserContext'
-import Button from '../../components'
+import Button from '../../components/Button'
 import {
   Container,
   LoginImage,
@@ -21,9 +21,9 @@ import {
 } from './styles'
 
 function Login() {
-  const { putUserData, userData } = useUser()
+  const history = useHistory()
 
-  console.log(userData)
+  const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
@@ -52,6 +52,10 @@ function Login() {
     )
 
     putUserData(data)
+
+    setTimeout(() => {
+      history.push('/')
+    })
   }
 
   return (

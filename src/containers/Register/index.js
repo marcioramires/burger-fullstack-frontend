@@ -9,7 +9,7 @@ import api from '../../services/api'
 import RegisterImg from '../../assets/registerimage.svg'
 import Logo from '../../assets/logo.svg'
 
-import Button from '../../components'
+import Button from '../../components/Button'
 import {
   Container,
   RegisterImage,
