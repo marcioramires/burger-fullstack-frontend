@@ -6,11 +6,19 @@ import { CardProduct } from '../../components'
 import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductsContainer } from './styles'
 import formatCurrency from '../../utils/formatCurrency'
 
-export function Products() {
+export function Products({ location: { state } }) {
+
+    let categoryId = 0
+    if (state?.categoryId) {
+        categoryId = state.categoryId
+    }
+
+    console.log(categoryId)
+
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
-    const [activeCategory, setActiveCategory] = useState(0)
+    const [activeCategory, setActiveCategory] = useState(categoryId)
 
     useEffect(() => {
 
