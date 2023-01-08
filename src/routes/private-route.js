@@ -2,16 +2,19 @@ import React from "react";
 import { Route, Redirect } from 'react-router-dom'
 import { Header } from "../components";
 
-function PrivateRoute({ component, ...rest }) {
+function PrivateRoute({ component, isAdmin, ...rest }) {
     const user = localStorage.getItem('burger:userData')
 
     if (!user) {
         return <Redirect to="/login" />
     }
+    if (isAdmin && !JSON.parse(user).admin) {
+        return <Redirect to="/" />
+    }
 
     return (
         <>
-            <Header />
+            {!isAdmin && <Header />}
             <Route {...rest} component={component} />
         </>
     )
