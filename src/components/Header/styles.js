@@ -42,6 +42,7 @@ export const PageLink = styled.a`
   color: ${props => props.isActive ? '#9758a6' : '#555555'};
   font-weight: ${props => props.isActive ? 'bold' : 'normal'};
   text-decoration: ${props => props.isActive ? '' : 'none'};
+  border-bottom: ${props => props.isActive ? '2px solid #9758a6' : 'none'};
   font-size: 16px;
   line-height: 19px;
 `
