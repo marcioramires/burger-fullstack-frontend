@@ -13,8 +13,6 @@ export function Products({ location: { state } }) {
         categoryId = state.categoryId
     }
 
-    console.log(categoryId)
-
     const [categories, setCategories] = useState([])
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
