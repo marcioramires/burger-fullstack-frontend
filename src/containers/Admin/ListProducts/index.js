@@ -67,7 +67,7 @@ function ListProducts() {
                                 </TableCell>
                                 <TableCell align='center'>{formatCurrency(product.price)}</TableCell>
                                 <TableCell align='center'>{isOffer(product.offer)}</TableCell>
-                                <TableCell align='center'><button>Editar</button></TableCell>
+                                <TableCell align='center'><button>Editar Produto</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

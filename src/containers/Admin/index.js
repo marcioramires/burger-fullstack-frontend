@@ -1,16 +1,20 @@
 import React from "react";
+
 import { SideMenuAdmin } from "../../components";
 import Orders from "./Orders";
 import ListProducts from "./ListProducts";
 import { Container, ContainerItems } from "./styles";
+import paths from "../../constants/paths";
 
-export function Admin() {
+export function Admin({ match: { path } }) {
 
     return (
         <Container>
-            <SideMenuAdmin />
+            <SideMenuAdmin path={path} />
             <ContainerItems>
-                <ListProducts />
+                {path === paths.Order && <Orders />}
+                {path === paths.ShowProducts && <ListProducts />}
+                {/* {path === paths.NewProduct && <NewProducts />} */}
             </ContainerItems>
         </Container>
     )

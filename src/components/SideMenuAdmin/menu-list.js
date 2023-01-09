@@ -1,11 +1,27 @@
 import bag from '../../assets/bag-icon.svg'
+import shop from '../../assets/products-icon.svg'
+import add from '../../assets/add-product-icon.svg'
+import paths from '../../constants/paths'
 
 const listLinks = [
     {
         id: 1,
         label: 'Pedidos',
-        link: '/pedidos',
+        link: paths.Order,
         icon: bag
+    },
+    {
+        id: 2,
+        label: 'Listar Produtos',
+        link: paths.ShowProducts,
+        icon: shop
+    }
+    ,
+    {
+        id: 3,
+        label: 'Adicionar Produto',
+        link: paths.NewProduct,
+        icon: add
     }
 ]
 
