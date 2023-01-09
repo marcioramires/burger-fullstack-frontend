@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import ReactSelect from "react-select";
-import { Button } from "../../../components";
 
 import api from '../../../services/api'
+import { ButtonStyles } from "../styles";
 import { Container, Input, Label } from './styles'
 
 function NewProduct() {
@@ -31,7 +31,7 @@ function NewProduct() {
                 <Label>Upload da image</Label>
                 <Input type="file" accept="image/png, image/jpeg, image/svg" />
                 <ReactSelect />
-                <Button>Adicionar Produto</Button>
+                <ButtonStyles>Adicionar Produto</ButtonStyles>
             </form>
         </Container>
     )
