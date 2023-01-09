@@ -22,7 +22,7 @@ export function Header() {
 
     const logoutUser = () => {
         logout()
-        push('/login')
+        push('/')
     }
 
     return (

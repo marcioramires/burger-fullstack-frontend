@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
     }
 
     const logout = async () => {
-        await localStorage.removeItem('burger:userData')
+        await localStorage.clear()
     }
 
     useEffect(() => {
