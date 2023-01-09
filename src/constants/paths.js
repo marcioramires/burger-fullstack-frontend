@@ -3,10 +3,10 @@ const paths = {
     Register: '/cadastro',
     Home: '/',
     Products: '/produtos',
-    Cart: '/cart',
+    Cart: '/carrinho',
     Order: '/pedidos',
     ShowProducts: '/listar-produtos',
-    EditProduct: '/editar-product',
+    EditProduct: '/editar-produto',
     NewProduct: '/novo-produto'
 
 }

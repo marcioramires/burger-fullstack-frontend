@@ -14,6 +14,7 @@ import {
     PageLink,
     PageLinkExit
 } from './styles'
+import paths from "../../constants/paths";
 
 
 export function Header() {
@@ -28,10 +29,10 @@ export function Header() {
     return (
         <Container>
             <ContainerLeft>
-                <PageLink onClick={() => push('/')} isActive={pathname === '/'}>
+                <PageLink onClick={() => push(paths.Home)} isActive={pathname === '/'}>
                     Home
                 </PageLink>
-                <PageLink onClick={() => push('/produtos')} isActive={pathname.includes('/produtos')}>
+                <PageLink onClick={() => push(paths.Products)} isActive={pathname.includes('/produtos')}>
                     Ver Produtos
                 </PageLink>
             </ContainerLeft>
@@ -41,7 +42,7 @@ export function Header() {
                 </PageLink>
                 <Line>
                 </Line>
-                <PageLink onClick={() => push('/carrinho')} isActive={pathname === '/carrinho'}>
+                <PageLink onClick={() => push(paths.Cart)} isActive={pathname === '/carrinho'}>
                     <img src={Cart} alt="carrinho" />
                 </PageLink>
                 <ContainerText>
