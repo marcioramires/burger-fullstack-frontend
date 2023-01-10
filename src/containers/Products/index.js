@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import ProductsLogo from '../../assets/products-logo.svg'
-import api from "../../services/api";
+import { api } from "../../services/api";
 import { CardProduct } from '../../components'
 import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductsContainer } from './styles'
 import formatCurrency from '../../utils/formatCurrency'
+import { useHistory } from "react-router-dom";
+import { useUser } from "../../hooks/UserContext";
+import { toast } from "react-toastify";
 
 export function Products({ location: { state } }) {
 
@@ -17,25 +20,66 @@ export function Products({ location: { state } }) {
     const [products, setProducts] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const [activeCategory, setActiveCategory] = useState(categoryId)
+    const { push } = useHistory()
+    const { logout } = useUser()
 
     useEffect(() => {
 
         async function loadCategories() {
-            const { data } = await api.get('categories')
+            try {
+                const { data } = await api.get('categories')
 
-            const allCategories = [{ id: 0, name: 'Todas' }, ...data]
+                const allCategories = [{ id: 0, name: 'Todas' }, ...data]
 
-            setCategories(allCategories)
+                setCategories(allCategories)
+
+            } catch (error) {
+                if (error.response.data.error === 'Token is invalid') {
+                    toast.error('Tempo de conexão expirado, faça login novamente!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(() => {
+                        logout()
+                        push('/')
+                    }, 1500)
+                }
+            }
         }
 
         async function loadProducts() {
-            const { data } = await api.get('products')
+            try {
+                const { data } = await api.get('products')
 
-            const newProducts = data.map(product => {
-                return { ...product, formatedPrice: formatCurrency(product.price) }
-            })
+                const newProducts = data.map(product => {
+                    return { ...product, formatedPrice: formatCurrency(product.price) }
+                })
 
-            setProducts(newProducts)
+                setProducts(newProducts)
+            } catch (error) {
+                if (error.response.data.error === 'Token is invalid') {
+                    toast.error('Tempo de conexão expirado, faça login novamente!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(() => {
+                        logout()
+                        push('/')
+                    }, 1500)
+                }
+            }
         }
 
         loadProducts()

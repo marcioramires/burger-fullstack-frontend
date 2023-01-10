@@ -9,27 +9,48 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
 import { ProductImg, ReactSelectStyle } from "./styles";
-import api from "../../../services/api";
+import { api } from '../../../services/api'
 import status from "./orderStatus";
+import { toast } from "react-toastify";
+import { useUser } from "../../../hooks/UserContext";
+import { useHistory } from "react-router-dom";
 
 function Row({ row, setOrders, orders }) {
     const [open, setOpen] = React.useState(false)
     const [isLoading, setIsLoading] = React.useState(false)
+    const { push } = useHistory()
+    const { logout } = useUser()
 
     async function setNewStatus(id, status) {
         setIsLoading(true)
-        await api.put(`orders/${id}`, { status })
+        try {
+            await api.put(`orders/${id}`, { status })
 
-        const newOrders = orders.map(order => {
-            return order._id === id ? { ...order, status } : order
-        })
+            const newOrders = orders.map(order => {
+                return order._id === id ? { ...order, status } : order
+            })
 
-        setOrders(newOrders)
-        setIsLoading(false)
+            setOrders(newOrders)
+            setIsLoading(false)
+        } catch (error) {
+            if (error.response.data.error === 'Token is invalid') {
+                toast.error('Tempo de conexão expirado, faça login novamente!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                setTimeout(() => {
+                    logout()
+                    push('/')
+                }, 1500)
+            }
+        }
     }
 
     return (

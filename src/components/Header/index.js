@@ -12,6 +12,7 @@ import {
     ContainerText,
     Line,
     PageLink,
+    PageLinkOrders,
     PageLinkExit
 } from './styles'
 import paths from "../../constants/paths";
@@ -37,9 +38,12 @@ export function Header() {
                 </PageLink>
             </ContainerLeft>
             <ContainerRight>
-                <PageLink>
-                    <img src={User} alt="usuário" />
-                </PageLink>
+                <PageLinkOrders onClick={() => push(paths.Orders)} isActive={pathname === '/meus-pedidos'}>
+                    <div>
+                        <p>Meus Pedidos</p>
+                        <img src={User} alt="usuário" />
+                    </div>
+                </PageLinkOrders>
                 <Line>
                 </Line>
                 <PageLink onClick={() => push(paths.Cart)} isActive={pathname === '/carrinho'}>

@@ -7,27 +7,50 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import formatDate from '../../../utils/formatDate'
-import api from "../../../services/api";
+import { api } from '../../../services/api'
 import { Container, LinkMenu, Menu } from "./styles";
 import Row from "./row";
 import status from './orderStatus'
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
+import { useUser } from "../../../hooks/UserContext";
 
 function Orders() {
     const [orders, setOrders] = useState([])
     const [filteredOrders, setFilteredOrders] = useState([])
     const [activeStatus, setActiveStatus] = useState(1)
     const [rows, setRows] = useState([])
+    const { push } = useHistory()
+    const { logout } = useUser()
 
     useEffect(() => {
         async function loadOrders() {
-            const { data } = await api.get('orders')
+            try {
+                const { data } = await api.get('orders')
 
-            setOrders(data)
-            setFilteredOrders(data)
+                setOrders(data)
+                setFilteredOrders(data)
+                console.log(data)
+            } catch (error) {
+                if (error.response.data.error === 'Token is invalid') {
+                    toast.error('Tempo de conexão expirado, faça login novamente!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(() => {
+                        logout()
+                        push('/')
+                    }, 1500)
+                }
+            }
         }
 
         loadOrders()

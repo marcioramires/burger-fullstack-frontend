@@ -3,17 +3,41 @@ import Carousel from "react-elastic-carousel";
 
 import Category from '../../assets/categories.png'
 import { Container, CategoryImg, ContainerItems, Image, Button } from './styles'
-import api from '../../services/api'
+import { api } from '../../services/api'
+import { toast } from "react-toastify";
+import { useUser } from "../../hooks/UserContext";
+import { useHistory } from "react-router-dom";
 
 export function CategoryCarousel() {
     const [categories, setCategories] = useState([])
+    const { push } = useHistory()
+    const { logout } = useUser()
 
     useEffect(() => {
 
         async function loadCategories() {
-            const { data } = await api.get('categories')
+            try {
+                const { data } = await api.get('categories')
 
-            setCategories(data)
+                setCategories(data)
+            } catch (error) {
+                if (error.response.data.error === 'Token is invalid') {
+                    toast.error('Tempo de conexão expirado, faça login novamente!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(() => {
+                        logout()
+                        push('/')
+                    }, 1500)
+                }
+            }
         }
 
         loadCategories()

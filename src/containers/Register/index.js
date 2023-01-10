@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
 
-import api from '../../services/api'
+import { api } from '../../services/api'
 import RegisterImg from '../../assets/registerimage.svg'
 import Logo from '../../assets/logo.svg'
 

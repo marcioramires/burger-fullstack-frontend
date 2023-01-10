@@ -47,6 +47,30 @@ export const PageLink = styled.a`
   line-height: 19px;
 `
 
+export const PageLinkOrders = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  color: ${props => props.isActive ? '#9758a6' : '#555555'};
+  font-weight: ${props => props.isActive ? 'bold' : 'normal'};
+  text-decoration: ${props => props.isActive ? '' : 'none'};
+  font-size: 14px;
+  line-height: 16px;
+  border-bottom: ${props => props.isActive ? '2px solid #9758a6' : 'none'};
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  p {
+    width: 70px;
+    text-align: right;
+    padding-top: 1px;
+  }
+`
+
 export const PageLinkExit = styled.a`
   cursor: pointer;
   text-decoration: none;

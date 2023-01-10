@@ -8,19 +8,42 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import api from '../../../services/api'
+import { api } from '../../../services/api'
 import { Container } from './styles'
 import formatCurrency from '../../../utils/formatCurrency'
-
+import { useHistory } from "react-router-dom";
+import { useUser } from "../../../hooks/UserContext";
+import { toast } from "react-toastify";
 
 function ListProducts() {
     const [products, setProducts] = useState([])
+    const { push } = useHistory()
+    const { logout } = useUser()
 
     useEffect(() => {
         async function loadProducts() {
-            const { data } = await api.get('products')
+            try {
+                const { data } = await api.get('products')
 
-            setProducts(data)
+                setProducts(data)
+            } catch (error) {
+                if (error.response.data.error === 'Token is invalid') {
+                    toast.error('Tempo de conexão expirado, faça login novamente!', {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(() => {
+                        logout()
+                        push('/')
+                    }, 1500)
+                }
+            }
         }
 
         loadProducts()
