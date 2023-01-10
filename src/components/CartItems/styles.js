@@ -23,13 +23,14 @@ export const Body = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding: 10px;
-  width: max-content;
   grid-gap: 10px 15px;
   img {
     border-radius: 10px;
-    width: 120px;
+    width: 100px;
+    height: 100px;
   }
   p {
+    width: 120px;
     font-size: 16px;
     color: #000000;
   }
@@ -44,10 +45,12 @@ export const Body = styled.div`
       cursor: pointer;
     }
     p {
+      width: 10px;
       margin-top: 5px;
     }
   }
 `
+
 export const EmptyCart = styled.p`
   padding: 20px;
   text-align: center;

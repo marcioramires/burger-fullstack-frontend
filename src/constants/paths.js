@@ -6,6 +6,7 @@ const paths = {
     Cart: '/carrinho',
     Order: '/pedidos',
     ShowProducts: '/listar-produtos',
+    ShowUsers: '/listar-usuarios',
     EditProduct: '/editar-produto',
     NewProduct: '/novo-produto',
     Orders: '/meus-pedidos'

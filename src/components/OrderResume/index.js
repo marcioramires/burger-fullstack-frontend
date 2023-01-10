@@ -10,7 +10,7 @@ import { Container, Header, Body, EmptyCart } from './styles'
 export function OrderResume() {
     const [orders, setOrders] = useState([])
     const { push } = useHistory()
-    const { logout } = useUser()
+    const { logout, userData } = useUser()
 
     useEffect(() => {
         async function loadOrders() {
@@ -19,7 +19,6 @@ export function OrderResume() {
 
                 setOrders(data)
 
-                console.log(data)
             } catch (error) {
                 if (error.response.data.error === 'Token is invalid') {
                     toast.error('Tempo de conexão expirado, faça login novamente!', {
@@ -43,26 +42,30 @@ export function OrderResume() {
         loadOrders()
     }, [])
 
+
+    const userOrder = orders.filter(order => order.user.id === userData.id)
+    const orderProducts = userOrder[1].products
+    console.log(orderProducts)
+
     return (
         <Container>
             <h2>Meus Pedidos</h2>
             <Header>
                 <p></p>
                 <p>Itens</p>
+                <p>Quantidade</p>
                 <p>Preço</p>
-                <p style={{ paddingRight: 30 }}>Quantidade</p>
                 <p>Total</p>
             </Header>
 
-            {orders && orders.length > 0 ? (
-                orders.map(product => (
-                    <Body key={product._id}>
-                        <img src={product.url} />
-                        <p>{product.products.name}</p>
-                        <p>{formatCurrency(product.price)}</p>
-                        <div className="quantity-container">
-                        </div>
-                        <p>{formatCurrency(product.quantity * product.price)}</p>
+            {orderProducts && orderProducts.length > 0 ? (
+                orderProducts.map(order => (
+                    <Body key={order.id}>
+                        <img src={order.url} />
+                        <p>{order.name}</p>
+                        <p>formatCurrency</p>
+                        <p>formatCurrency</p>
+                        <p></p>
                     </Body>
                 ))
             ) : (

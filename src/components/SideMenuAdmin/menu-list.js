@@ -19,6 +19,13 @@ const listLinks = [
     ,
     {
         id: 3,
+        label: 'Listar Usuários',
+        link: paths.ShowUsers,
+        icon: add
+    }
+    ,
+    {
+        id: 4,
         label: 'Adicionar Produto',
         link: paths.NewProduct,
         icon: add
