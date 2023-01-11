@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 
 import { useUser } from '../../hooks/UserContext'
 import { api } from '../../services/api'
-import formatCurrency from '../../utils/formatCurrency'
+// import formatCurrency from '../../utils/formatCurrency'
 import { Container, Header, Body, EmptyCart } from './styles'
 
 export function OrderResume() {
@@ -16,7 +16,6 @@ export function OrderResume() {
         async function loadOrders() {
             try {
                 const { data } = await api.get('orders')
-
                 setOrders(data)
 
             } catch (error) {
@@ -42,11 +41,6 @@ export function OrderResume() {
         loadOrders()
     }, [])
 
-
-    const userOrder = orders.filter(order => order.user.id === userData.id)
-    const orderProducts = userOrder[1].products
-    console.log(orderProducts)
-
     return (
         <Container>
             <h2>Meus Pedidos</h2>
@@ -58,19 +52,21 @@ export function OrderResume() {
                 <p>Total</p>
             </Header>
 
-            {orderProducts && orderProducts.length > 0 ? (
-                orderProducts.map(order => (
-                    <Body key={order.id}>
-                        <img src={order.url} />
-                        <p>{order.name}</p>
-                        <p>formatCurrency</p>
-                        <p>formatCurrency</p>
-                        <p></p>
-                    </Body>
-                ))
-            ) : (
-                <EmptyCart>Sem pedidos até o momento</EmptyCart>
-            )}
+            {
+                orders && orders.length > 0 ? (
+                    orders.map(order => (
+                        <Body key={order._id}>
+                            <img src={order.url} />
+                            <p>{order.name}</p>
+                            <p>formatCurrency</p>
+                            <p>formatCurrency</p>
+                            <p></p>
+                        </Body>
+                    ))
+                ) : (
+                    <EmptyCart>Sem pedidos até o momento</EmptyCart>
+                )
+            }
         </Container>
     )
 

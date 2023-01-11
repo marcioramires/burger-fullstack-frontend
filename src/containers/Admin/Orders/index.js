@@ -32,7 +32,7 @@ function Orders() {
 
                 setOrders(data)
                 setFilteredOrders(data)
-                console.log(data)
+
             } catch (error) {
                 if (error.response.data.error === 'Token is invalid') {
                     toast.error('Tempo de conexão expirado, faça login novamente!', {

@@ -62,7 +62,6 @@ function ListUsers() {
                             <TableCell align='center'>E-mail</TableCell>
                             <TableCell align='center'>Data de Nascimento</TableCell>
                             <TableCell align='center'>Login</TableCell>
-                            <TableCell align='center'>Deletar Usuário</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -90,7 +89,6 @@ function ListUsers() {
                                 <TableCell align='center'>{user.email}</TableCell>
                                 <TableCell align='center'>{user.birthday}</TableCell>
                                 <TableCell align='center'>{user.login}</TableCell>
-                                <TableCell align='center'><button>Deletar</button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

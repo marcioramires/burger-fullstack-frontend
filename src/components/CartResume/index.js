@@ -26,11 +26,12 @@ export function CartResume() {
     }, [cartProducts, deliveryTax])
 
     const submitOrder = async () => {
+        console.log(finalPrice)
         const order = cartProducts.map(product => {
             return { id: product.id, quantity: product.quantity }
         })
         try {
-            await toast.promise(api.post('orders', { products: order }), {
+            await toast.promise(api.post('orders', { products: order, totalPrice: (finalPrice + deliveryTax) }), {
                 pending: 'Realizando o seu pedido...',
                 success: 'Pedido realizado com sucesso',
                 error: 'Falha ao tentar realizar o seu pedido, tente novamente'
