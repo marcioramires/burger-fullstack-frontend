@@ -23,13 +23,6 @@ const listLinks = [
         link: paths.ShowUsers,
         icon: add
     }
-    ,
-    {
-        id: 4,
-        label: 'Adicionar Produto',
-        link: paths.NewProduct,
-        icon: add
-    }
 ]
 
 export default listLinks

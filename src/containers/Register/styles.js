@@ -12,15 +12,11 @@ export const Container = styled.div`
     align-items: center;
 `
 
-export const RegisterImage = styled.img`
-    height: 70%;
-`
-
 export const ContainerItems = styled.div`
     background: #373737;
     box-shadow: 0px 4px 15px rgba(74, 144, 226, 0.24);
     border-radius: 0 10px 10px 0;
-    height: 70%;
+    height: max-content;
     padding: 25px 75px;
     display: flex;
     flex-direction: column;

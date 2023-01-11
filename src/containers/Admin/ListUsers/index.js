@@ -23,7 +23,7 @@ function ListUsers() {
         async function loadUsers() {
             try {
                 const { data } = await api.get('users')
-                console.log(data)
+
                 setUsers(data)
             } catch (error) {
                 if (error.response.data.error === 'Token is invalid') {
@@ -56,7 +56,6 @@ function ListUsers() {
                         <TableRow>
                             <TableCell align='center'>Id do Usuário</TableCell>
                             <TableCell align='center'>Nome</TableCell>
-                            <TableCell align='center'>Foto do Usuário</TableCell>
                             <TableCell align='center'>Endereço</TableCell>
                             <TableCell align='center'>Telefone</TableCell>
                             <TableCell align='center'>E-mail</TableCell>
@@ -72,16 +71,6 @@ function ListUsers() {
                             >
                                 <TableCell align='center' component="th" scope="row">
                                     {user.id}
-                                </TableCell>
-                                <TableCell align='center'>
-                                    <img
-                                        src={user.url}
-                                        style={{
-                                            width: '70px',
-                                            height: '70px',
-                                            borderRadius: '5px'
-                                        }}
-                                    />
                                 </TableCell>
                                 <TableCell align='center'>{user.name}</TableCell>
                                 <TableCell align='center'>{user.address}</TableCell>

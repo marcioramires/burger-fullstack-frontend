@@ -7,7 +7,6 @@ import { Link, useHistory } from 'react-router-dom'
 
 import { api } from '../../services/api'
 import LoginImg from '../../assets/loginimage.svg'
-import Logo from '../../assets/logo.svg'
 import { useUser } from '../../hooks/UserContext'
 import { Button } from '../../components'
 import {
@@ -66,7 +65,6 @@ export function Login() {
     <Container>
       <LoginImage src={LoginImg} alt='login-image' />
       <ContainerItems>
-        <img src={Logo} alt='logo-burger' />
         <h1>
           Login
         </h1>

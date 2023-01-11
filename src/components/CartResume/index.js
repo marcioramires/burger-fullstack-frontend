@@ -26,7 +26,7 @@ export function CartResume() {
     }, [cartProducts, deliveryTax])
 
     const submitOrder = async () => {
-        console.log(finalPrice)
+
         const order = cartProducts.map(product => {
             return { id: product.id, quantity: product.quantity }
         })

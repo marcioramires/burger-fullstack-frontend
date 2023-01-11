@@ -14,6 +14,7 @@ import formatCurrency from '../../../utils/formatCurrency'
 import { useHistory } from "react-router-dom";
 import { useUser } from "../../../hooks/UserContext";
 import { toast } from "react-toastify";
+import editIcon from '../../../assets/edit-icon.svg'
 
 function ListProducts() {
     const [products, setProducts] = useState([])
@@ -90,7 +91,7 @@ function ListProducts() {
                                 </TableCell>
                                 <TableCell align='center'>{formatCurrency(product.price)}</TableCell>
                                 <TableCell align='center'>{isOffer(product.offer)}</TableCell>
-                                <TableCell align='center'><button>Editar Produto</button></TableCell>
+                                <TableCell align='center'><button><img src={editIcon} /></button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

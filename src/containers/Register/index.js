@@ -3,16 +3,13 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { toast } from 'react-toastify'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { api } from '../../services/api'
-import RegisterImg from '../../assets/registerimage.svg'
-import Logo from '../../assets/logo.svg'
 
 import { Button } from '../../components'
 import {
   Container,
-  RegisterImage,
   ContainerItems,
   Label,
   Input,
@@ -21,6 +18,8 @@ import {
 } from './styles'
 
 export function Register() {
+  const history = useHistory()
+
   const schema = Yup.object().shape({
     name: Yup.string('O seu nome é obrigatório').required(),
     email: Yup.string().email('Digite um e-mail válido').required('O e-mail é obrigatório'),
@@ -42,16 +41,22 @@ export function Register() {
         'users',
         {
           name: clientData.name,
+          address: clientData.address,
+          phone: clientData.phone,
           email: clientData.email,
+          birthday: clientData.birthday,
+          login: clientData.login,
           password: clientData.password
         },
         { validateStatus: () => true }
       )
 
       if (status === 201 || status === 200) {
-        toast.success('Cadastro criado com sucesso')
+        toast.success('Cadastro criado com sucesso. Faça seu login!')
+        setTimeout(() => { history.push('/') }, 3000)
       } else if (status === 409) {
         toast.error('E-mail já cadastrado! Faça login para continuar')
+        setTimeout(() => { history.push('/') }, 3000)
       } else {
         throw new Error()
       }
@@ -63,9 +68,7 @@ export function Register() {
 
   return (
     <Container>
-      <RegisterImage src={RegisterImg} alt='register-image' />
       <ContainerItems>
-        <img src={Logo} alt='logo-burger' />
         <h1>
           Cadastre-se
         </h1>
@@ -74,9 +77,25 @@ export function Register() {
           <Input type="name" {...register('name')} error={errors.name?.message} />
           <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
+          <Label error={errors.address?.message}>Endereço</Label>
+          <Input type="name" {...register('address')} error={errors.address?.message} />
+          <ErrorMessage>{errors.address?.message}</ErrorMessage>
+
+          <Label error={errors.phone?.message}>Telefone</Label>
+          <Input type="name" {...register('phone')} error={errors.phone?.message} />
+          <ErrorMessage>{errors.phone?.message}</ErrorMessage>
+
           <Label error={errors.email?.message}>Email</Label>
           <Input type="email" {...register('email')} error={errors.email?.message} />
           <ErrorMessage>{errors.email?.message}</ErrorMessage>
+
+          <Label error={errors.birthday?.message}>Data de Nascimento</Label>
+          <Input type="email" {...register('birthday')} error={errors.birthday?.message} />
+          <ErrorMessage>{errors.birthday?.message}</ErrorMessage>
+
+          <Label error={errors.login?.message}>Usuário para Login</Label>
+          <Input type="email" {...register('login')} error={errors.login?.message} />
+          <ErrorMessage>{errors.login?.message}</ErrorMessage>
 
           <Label error={errors.password?.message}>Senha</Label>
           <Input type="password" {...register('password')} error={errors.password?.message} />
@@ -95,4 +114,3 @@ export function Register() {
     </Container >
   );
 }
-

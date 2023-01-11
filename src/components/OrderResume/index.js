@@ -4,13 +4,12 @@ import { toast } from 'react-toastify'
 
 import { useUser } from '../../hooks/UserContext'
 import { api } from '../../services/api'
-// import formatCurrency from '../../utils/formatCurrency'
 import { Container, Header, Body, EmptyCart } from './styles'
 
 export function OrderResume() {
     const [orders, setOrders] = useState([])
     const { push } = useHistory()
-    const { logout, userData } = useUser()
+    const { logout } = useUser()
 
     useEffect(() => {
         async function loadOrders() {
@@ -39,7 +38,7 @@ export function OrderResume() {
         }
 
         loadOrders()
-    }, [])
+    }, [orders])
 
     return (
         <Container>
@@ -52,22 +51,9 @@ export function OrderResume() {
                 <p>Total</p>
             </Header>
 
-            {
-                orders && orders.length > 0 ? (
-                    orders.map(order => (
-                        <Body key={order._id}>
-                            <img src={order.url} />
-                            <p>{order.name}</p>
-                            <p>formatCurrency</p>
-                            <p>formatCurrency</p>
-                            <p></p>
-                        </Body>
-                    ))
-                ) : (
-                    <EmptyCart>Sem pedidos até o momento</EmptyCart>
-                )
-            }
+            <Body>
+                <EmptyCart>Sem pedidos até o momento</EmptyCart>
+            </Body>
         </Container>
     )
-
 }
