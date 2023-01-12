@@ -9,7 +9,7 @@ const paths = {
     ShowUsers: '/listar-usuarios',
     EditProduct: '/editar-produto',
     NewProduct: '/novo-produto',
-    Orders: '/meus-pedidos'
+    Orders: '/meus-pedidos',
 
 }
 

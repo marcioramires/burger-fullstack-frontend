@@ -48,6 +48,8 @@ function ListUsers() {
         loadUsers()
     }, [])
 
+    console.log(users)
+
     return (
         <Container>
             <TableContainer component={Paper}>
@@ -55,6 +57,7 @@ function ListUsers() {
                     <TableHead>
                         <TableRow>
                             <TableCell align='center'>Id do Usuário</TableCell>
+                            <TableCell align='center'>foto</TableCell>
                             <TableCell align='center'>Nome</TableCell>
                             <TableCell align='center'>Endereço</TableCell>
                             <TableCell align='center'>Telefone</TableCell>
@@ -73,6 +76,14 @@ function ListUsers() {
                                     {user.id}
                                 </TableCell>
                                 <TableCell align='center'>{user.name}</TableCell>
+                                <TableCell align='center'>
+                                    <img
+                                        src={user.url} style={{
+                                            width: '70px',
+                                            height: '70px',
+                                            borderRadius: '5px'
+                                        }} />
+                                </TableCell>
                                 <TableCell align='center'>{user.address}</TableCell>
                                 <TableCell align='center'>{user.phone}</TableCell>
                                 <TableCell align='center'>{user.email}</TableCell>
