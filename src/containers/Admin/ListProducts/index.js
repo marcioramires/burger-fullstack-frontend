@@ -66,6 +66,10 @@ function ListProducts() {
                             <TableCell align='center'>Nome</TableCell>
                             <TableCell align='center'>Foto do Produto</TableCell>
                             <TableCell align='center'>Preço</TableCell>
+                            <TableCell align='center'>Categoria</TableCell>
+                            <TableCell align='center'>Marca</TableCell>
+                            <TableCell align='center'>% de Imposto</TableCell>
+                            <TableCell align='center'>Estoque</TableCell>
                             <TableCell align='center'>Produto em Oferta</TableCell>
                             <TableCell align='center'>Editar</TableCell>
                         </TableRow>
@@ -90,6 +94,10 @@ function ListProducts() {
                                     />
                                 </TableCell>
                                 <TableCell align='center'>{formatCurrency(product.price)}</TableCell>
+                                <TableCell align='center'>{(product.category.name)}</TableCell>
+                                <TableCell align='center'>{(product.brand)}</TableCell>
+                                <TableCell align='center'>{(product.tax)}</TableCell>
+                                <TableCell align='center'>{(product.stock)}</TableCell>
                                 <TableCell align='center'>{isOffer(product.offer)}</TableCell>
                                 <TableCell align='center'><button><img src={editIcon} /></button></TableCell>
                             </TableRow>

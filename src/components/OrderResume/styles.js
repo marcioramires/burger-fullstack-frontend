@@ -58,3 +58,9 @@ export const EmptyCart = styled.p`
   text-align: center;
   font-weight: bold;
 `
+
+export const ProductImg = styled.img`
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+`
