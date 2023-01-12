@@ -44,8 +44,24 @@ export const Label = styled.p`
     font-size: 12px;
     line-height: 14px;
     color: #FFFFFF;
-    margin-top: ${props => (props.error ? '0px' : '28px')};
+    margin-top: ${props => (props.error ? '0px' : '20px')};
     margin-bottom: 5px;
+`
+
+export const LabelUpload = styled.label`
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px dashed #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0;
+    color: #ffffff;
+
+    input {
+        opacity: 0;
+        width: 1px;
+    }
 `
 
 export const Input = styled.input`

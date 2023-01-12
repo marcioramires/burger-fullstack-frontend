@@ -48,6 +48,13 @@ function ListUsers() {
         loadUsers()
     }, [])
 
+    function isAdmin(adminStatus) {
+        if (adminStatus) {
+            return "Sim"
+        }
+        return "Não"
+    }
+
     return (
         <Container>
             <TableContainer component={Paper}>
@@ -61,6 +68,7 @@ function ListUsers() {
                             <TableCell align='center'>Telefone</TableCell>
                             <TableCell align='center'>E-mail</TableCell>
                             <TableCell align='center'>Data de Nascimento</TableCell>
+                            <TableCell align='center'>Administrador</TableCell>
                             <TableCell align='center'>Login</TableCell>
                         </TableRow>
                     </TableHead>
@@ -86,6 +94,7 @@ function ListUsers() {
                                 <TableCell align='center'>{user.phone}</TableCell>
                                 <TableCell align='center'>{user.email}</TableCell>
                                 <TableCell align='center'>{user.birthday}</TableCell>
+                                <TableCell align='center'>{isAdmin(user.admin)}</TableCell>
                                 <TableCell align='center'>{user.login}</TableCell>
                             </TableRow>
                         ))}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
@@ -12,12 +12,14 @@ import {
   Container,
   ContainerItems,
   Label,
+  LabelUpload,
   Input,
   SignInLink,
   ErrorMessage
 } from './styles'
 
 export function Register() {
+  const [fileName, setFileName] = useState()
   const history = useHistory()
 
   const schema = Yup.object().shape({
@@ -37,19 +39,18 @@ export function Register() {
 
   const onSubmit = async clientData => {
     try {
-      const { status } = await api.post(
-        'users',
-        {
-          name: clientData.name,
-          address: clientData.address,
-          phone: clientData.phone,
-          email: clientData.email,
-          birthday: clientData.birthday,
-          login: clientData.login,
-          password: clientData.password
-        },
-        { validateStatus: () => true }
-      )
+      const clientDataForm = new FormData()
+
+      clientDataForm.append('name', clientData.name)
+      clientDataForm.append('address', clientData.address)
+      clientDataForm.append('phone', clientData.phone)
+      clientDataForm.append('email', clientData.email)
+      clientDataForm.append('birthday', clientData.birthday)
+      clientDataForm.append('login', clientData.login)
+      clientDataForm.append('password', clientData.password)
+      clientDataForm.append('file', clientData.file[0])
+
+      const { status } = await api.post('users', clientDataForm)
 
       if (status === 201 || status === 200) {
         toast.success('Cadastro criado com sucesso. Faça seu login!')
@@ -104,6 +105,20 @@ export function Register() {
           <Label error={errors.confirmPassword?.message}>Confirmar Senha</Label>
           <Input type="password" {...register('confirmPassword')} error={errors.confirmPassword?.message} />
           <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+
+          <LabelUpload error={errors.file?.message}>
+            {fileName || 'Faça o upload da sua foto'}
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              {...register('file')}
+              onChange={
+                value => {
+                  setFileName(value.target.files[0]?.name)
+                }}
+            />
+          </LabelUpload>
+          <ErrorMessage>{errors.file?.message}</ErrorMessage>
 
           <Button type="submit" style={{ marginTop: "25px", marginBottom: "25px" }}>Cadastrar</Button>
         </form>
