@@ -48,8 +48,6 @@ function ListUsers() {
         loadUsers()
     }, [])
 
-    console.log(users)
-
     return (
         <Container>
             <TableContainer component={Paper}>
