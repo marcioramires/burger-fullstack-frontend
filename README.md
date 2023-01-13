@@ -39,14 +39,14 @@ Foram utilizadas as seguintes tecnologias, ferramentas e bibliotecas:
 #
 # 💻 Funcionalidades:
 
-Consulta em tempo real da previsão do tempo para a cidade desejada. Retornando:
+Funcionamento completo de uma hamburgueria on-line, com interfaces pra clientes e funcionários (administradores).
 
-- Temperatura atual.
-- Data e cidade da consulta.
-- Condições do clima.
-- Temperatura máxima e mínima para o próximo dia.
-- Condições das nuvens.
-- Horário do nascer do sol e do por do sol.
+- Cadastro de clientes.
+- Seleção de produtos por categoria.
+- Carrinho e resumo da compra antes do envio do pedido.
+- Solicitação e acompanhamento do pedido pelo cliente.
+- Gerenciamento dos usuários, produtos e pedidos pelos funcionários através de usuários de administração do restaurante.
+- Tudo isso utilizando uma API REST ([burger-fullstack-api](https://github.com/marcioramires/burger-fullstack-api)), com banco de dados NoSQL (MongoDB) e SQL (Postgres) em ambiente em Docker.
 #
 # 😎 Deploy:
 - .
