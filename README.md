@@ -2,7 +2,8 @@
 
 Uma aplicação front-end, desenvolvido em React JS, que através de uma API REST ([burger-fullstack-api](https://github.com/marcioramires/burger-fullstack-api)) funciona como uma hamburgueria on-line. 
 
-Com serviços para os clientes como cadastro, seleção de produtos, solicitação e acompanhamento dos pedidos. Também fornece uma interface de gerenciamento para os colaboradores da hamburgueria, para controle dos produtos, usuários/clientes e pedidos.
+Com serviços para os clientes como cadastro, seleção de produtos, solicitação e acompanhamento dos pedidos. 
+Também fornece uma interface de gerenciamento para os colaboradores da hamburgueria, para controle dos produtos, usuários/clientes e pedidos.
 #
 ![image](https://user-images.githubusercontent.com/113479357/212388125-7c2c81fd-8563-4ce4-a272-37ffe2a71e7b.png)
 ![image](https://user-images.githubusercontent.com/113479357/212388225-485e92f7-d970-4575-8382-5469db83c088.png)
