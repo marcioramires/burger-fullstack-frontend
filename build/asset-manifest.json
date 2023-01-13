@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b3eeeea7.css",
+    "main.js": "/static/js/main.3958b72d.js",
+    "static/media/loginimage.svg": "/static/media/loginimage.9eee439922b67d79387f61f67db4ac68.svg",
+    "static/media/products-logo.svg": "/static/media/products-logo.cada809731d27452e5b69c01856e6d02.svg",
+    "static/media/home-logo.svg": "/static/media/home-logo.1831573eb0d80512ae35f0d6b91d18fb.svg",
+    "static/media/cart-logo.svg": "/static/media/cart-logo.cd937f9d50650db88daed2071953814a.svg",
+    "static/media/background.svg": "/static/media/background.c8dc32d863e79568bd9d5532966c2893.svg",
+    "static/media/categories.png": "/static/media/categories.2ede02d77ae549f1a492.png",
+    "static/media/products-icon.svg": "/static/media/products-icon.ecf357a0d1b4813441f5519aa2d4bc8c.svg",
+    "static/media/bag-icon.svg": "/static/media/bag-icon.cacd81add7d81f11468a525f85b6152d.svg",
+    "static/media/edit-icon.svg": "/static/media/edit-icon.921910672dce7b9b7215b4cff57cee71.svg",
+    "static/media/cart.svg": "/static/media/cart.330104e591d0312b0b58af855fbbe8e6.svg",
+    "static/media/user.svg": "/static/media/user.e717e8f8cb1dadcbd0f7df5149bafc90.svg",
+    "index.html": "/index.html",
+    "static/media/add-product-icon.svg": "/static/media/add-product-icon.01c8a71e0cf1ce2ac96243f81f231db0.svg",
+    "main.b3eeeea7.css.map": "/static/css/main.b3eeeea7.css.map",
+    "main.3958b72d.js.map": "/static/js/main.3958b72d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3eeeea7.css",
+    "static/js/main.3958b72d.js"
+  ]
+}
