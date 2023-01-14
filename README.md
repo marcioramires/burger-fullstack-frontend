@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Aplicação em ReactJS - Hamburgueria On-line
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação front-end, desenvolvido em React JS, que através de uma API REST ([burger-fullstack-api](https://github.com/marcioramires/burger-fullstack-api)) funciona como uma hamburgueria on-line. 
 
-## Available Scripts
+Com serviços para os clientes como cadastro, seleção de produtos, solicitação e acompanhamento dos pedidos. 
+Também fornece uma interface de gerenciamento para os colaboradores da hamburgueria, para controle dos produtos, usuários/clientes e pedidos.
+#
+![image](https://user-images.githubusercontent.com/113479357/212388125-7c2c81fd-8563-4ce4-a272-37ffe2a71e7b.png)
+![image](https://user-images.githubusercontent.com/113479357/212388225-485e92f7-d970-4575-8382-5469db83c088.png)
+![image](https://user-images.githubusercontent.com/113479357/212388463-9655606e-b2a8-4d51-b1a2-376221f506c5.png)
+![image](https://user-images.githubusercontent.com/113479357/212388568-7161a249-a10f-44cb-92c6-e8459d612399.png)
+![image](https://user-images.githubusercontent.com/113479357/212388633-47af235e-e2bb-4589-93c2-28db90fa9d01.png)
+![image](https://user-images.githubusercontent.com/113479357/212388772-2557bac9-346a-4a05-83dc-58a6aeae9fcc.png)
+![image](https://user-images.githubusercontent.com/113479357/212388863-669ec4ef-b4f0-45b4-8122-2392910641de.png)
+![image](https://user-images.githubusercontent.com/113479357/212388904-9044c464-6296-47ca-8c9d-426794400a52.png)
 
-In the project directory, you can run:
+# 🚀 Tecnologias:
+ 
+Foram utilizadas as seguintes tecnologias, ferramentas e bibliotecas:
 
-### `npm start`
+- Javascript
+- React
+- JSX
+- Styled Components
+- Material UI
+- Yarn
+- React-hook-state
+- React-hook-ref
+- Axios
+- React-router-dom
+- React-dom
+- React-select
+- React-elastic-carousel
+- React-hook-state
+- React-hook-ref
+- React-hook-form
+- React-hook-context
+- Yup
+#
+# 💻 Funcionalidades:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Funcionamento completo de uma hamburgueria on-line, com interfaces pra clientes e funcionários (administradores).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Cadastro de clientes.
+- Seleção de produtos por categoria.
+- Carrinho e resumo da compra antes do envio do pedido.
+- Solicitação e acompanhamento do pedido pelo cliente.
+- Gerenciamento dos usuários, produtos e pedidos pelos funcionários através de usuários de administração do restaurante.
+- Tudo isso utilizando uma API REST ([burger-fullstack-api](https://github.com/marcioramires/burger-fullstack-api)), com banco de dados NoSQL (MongoDB) e SQL (Postgres) em ambiente em Docker.
+#
+# 😎 Deploy:
+- .
+#
+Esse projeto foi criado com  Create React App, para compilar e instalar esse projeto siga as instruções abaixo.
 
-### `npm test`
+# Scripts Disponíveis
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# `yarn`
 
-### `npm run build`
+No diretório do projeto, você pode executar para instalar os pacotes de depencias.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# `yarn start`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O aplitcativo iniciará no modo de desenvolvimento, no seu navegador, no endereço [http://localhost:3000](http://localhost:3000).
+Caso isso não ocorra, você pode abri-lo digitando diretamente no seu navegador.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A página será recarregada quando você salvar o arquivo após alguma alteração.
 
-### `npm run eject`
+# `yarn test`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Inicia o executor de teste, você será guiado pelas opções disponíveis via terminal.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# `yarnd build`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Compila o aplicativo para produção na pasta `build`.\
+Ele agrupa corretamente os arquivos no modo de produção e otimiza a compilação para o melhor desempenho.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A compilação é reduzida e os nomes dos arquivos incluem os hashes.\
+Seu aplicativo está pronto para ser implantado!
