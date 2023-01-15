@@ -10,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { ProductImg } from "./styles";
+import apiURL from '../../constants/url'
 
 function Row({ row }) {
     const [open, setOpen] = React.useState(false)
@@ -57,7 +58,7 @@ function Row({ row }) {
                                             <TableCell>{productRow.name}</TableCell>
                                             <TableCell>{productRow.category}</TableCell>
                                             <TableCell>
-                                                <ProductImg src={productRow.url} alt="imagem-do-produto" />
+                                                <ProductImg src={apiURL + productRow.url} alt="imagem-do-produto" />
                                             </TableCell>
                                         </TableRow>
                                     ))}
