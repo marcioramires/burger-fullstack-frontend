@@ -7,6 +7,7 @@ import { api } from '../../services/api'
 import { toast } from "react-toastify";
 import { useUser } from "../../hooks/UserContext";
 import { useHistory } from "react-router-dom";
+import apiURL from "../../constants/url";
 
 export function CategoryCarousel() {
     const [categories, setCategories] = useState([])
@@ -61,7 +62,7 @@ export function CategoryCarousel() {
             >
                 {categories && categories.map(category => (
                     <ContainerItems key={category.id}>
-                        <Image src={category.url} alt="foto-da-categoria" />
+                        <Image src={apiURL + category.url} alt="foto-da-categoria" />
                         <Button to={{
                             pathname: "/produtos",
                             state: { categoryId: category.id }

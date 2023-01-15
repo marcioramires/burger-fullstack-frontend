@@ -15,6 +15,7 @@ import { useHistory } from "react-router-dom";
 import { useUser } from "../../../hooks/UserContext";
 import { toast } from "react-toastify";
 import editIcon from '../../../assets/edit-icon.svg'
+import apiURL from "../../../constants/url";
 
 function ListProducts() {
     const [products, setProducts] = useState([])
@@ -85,7 +86,7 @@ function ListProducts() {
                                 </TableCell>
                                 <TableCell align='center'>
                                     <img
-                                        src={product.url}
+                                        src={apiURL + product.url}
                                         style={{
                                             width: '70px',
                                             height: '70px',

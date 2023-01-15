@@ -4,13 +4,14 @@ import { useCart } from "../../hooks/CartContext";
 
 import { Button } from '../'
 import { Container, Image, ProductName, ProductPrice } from './styles'
+import apiURL from "../../constants/url";
 
 export function CardProduct({ product }) {
     const { putProductInCart } = useCart()
     const { push } = useHistory()
     return (
         <Container>
-            <Image src={product.url} alt='imagem-do-produto' />
+            <Image src={apiURL + product.url} alt='imagem-do-produto' />
             <div>
                 <ProductName>{product.name}</ProductName>
                 <ProductPrice>{product.formatedPrice}</ProductPrice>

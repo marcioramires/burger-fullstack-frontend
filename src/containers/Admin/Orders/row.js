@@ -15,6 +15,7 @@ import status from "./orderStatus";
 import { toast } from "react-toastify";
 import { useUser } from "../../../hooks/UserContext";
 import { useHistory } from "react-router-dom";
+import apiURL from "../../../constants/url";
 
 function Row({ row, setOrders, orders }) {
     const [open, setOpen] = React.useState(false)
@@ -112,7 +113,7 @@ function Row({ row, setOrders, orders }) {
                                             <TableCell>{productRow.name}</TableCell>
                                             <TableCell>{productRow.category}</TableCell>
                                             <TableCell>
-                                                <ProductImg src={productRow.url} alt="imagem-do-produto" />
+                                                <ProductImg src={apiURL + productRow.url} alt="imagem-do-produto" />
                                             </TableCell>
                                         </TableRow>
                                     ))}

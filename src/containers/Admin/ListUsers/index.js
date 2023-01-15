@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import apiURL from '../../../constants/url'
 
 import { api } from '../../../services/api'
 import { Container } from './styles'
@@ -84,7 +85,7 @@ function ListUsers() {
                                 <TableCell align='center'>{user.name}</TableCell>
                                 <TableCell align='center'>
                                     <img
-                                        src={user.url} style={{
+                                        src={apiURL + user.url} style={{
                                             width: '70px',
                                             height: '70px',
                                             borderRadius: '5px'
@@ -101,7 +102,7 @@ function ListUsers() {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </Container>
+        </Container >
     )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import apiURL from '../../constants/url'
 
 import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formatCurrency'
@@ -20,7 +21,7 @@ export function CartItems() {
             {cartProducts && cartProducts.length > 0 ? (
                 cartProducts.map(product => (
                     <Body key={product.id}>
-                        <img src={product.url} />
+                        <img src={apiURL + product.url} />
                         <p>{product.name}</p>
                         <p>{formatCurrency(product.price)}</p>
                         <div className="quantity-container">
