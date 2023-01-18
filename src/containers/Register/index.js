@@ -106,19 +106,17 @@ export function Register() {
           <Input type="password" {...register('confirmPassword')} error={errors.confirmPassword?.message} />
           <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
 
-          <LabelUpload error={errors.file?.message}>
+          <LabelUpload>
             {fileName || 'Faça o upload da sua foto'}
             <input
               type="file"
               accept="image/png, image/jpeg"
-              {...register('file')}
               onChange={
                 value => {
                   setFileName(value.target.files[0]?.name)
                 }}
             />
           </LabelUpload>
-          <ErrorMessage>{errors.file?.message}</ErrorMessage>
 
           <Button type="submit" style={{ marginTop: "25px", marginBottom: "25px" }}>Cadastrar</Button>
         </form>

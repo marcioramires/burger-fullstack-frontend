@@ -61,6 +61,7 @@ export const LabelUpload = styled.label`
     input {
         opacity: 0;
         width: 1px;
+        border: ${props => props.error ? '2px solid #CC1717;' : 'none'};
     }
 `
 
