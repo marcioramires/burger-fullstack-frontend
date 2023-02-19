@@ -6,7 +6,6 @@ import PrivateRoute from "./private-route";
 import paths from "../constants/paths";
 
 function Routes() {
-
     return (
         <Router>
             <Switch>
